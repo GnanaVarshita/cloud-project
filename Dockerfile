@@ -2,12 +2,13 @@ FROM node:18-alpine
 
 WORKDIR /food-app/
 
-COPY public/ /food-app/public
-COPY src/ /food-app/src
-COPY package*.json ./
+
+COPY package.json .
 
 RUN npm install
 
+COPY . .
 
+EXPOSE 3000
 
-CMD npm run dev
+CMD ["npm","start"]
